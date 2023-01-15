@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TempleteController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PasscodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,23 +38,12 @@ Route::controller(EventController::class)->prefix('event')->name('event')->group
     Route::post('/update/{event_id}', 'update')->name('.update');
     Route::get('/check/{event_id}', 'check')->name('.check');
 });
-// Route::post('/templete', function (Request $request) {
+
+Route::controller(PasscodeController::class)->prefix('passcode')->name('passcode')->group(function() {
+    Route::get('/', 'list');
     
-//     $objDateTime = new DateTime();
     
-//     $templetes = new Templete;
-  
-//     $templetes ->name = $request->name;
-//     $templetes->week = $request->week;
-//     $templetes->start_hour = $request->start_hour;
-//     $templetes->start_minute = $request->start_minute;
-//     $templetes->end_hour = $request->end_hour;
-//     $templetes->end_minute = $request->end_minute;
-//     $templetes->late_minute = $request->late_minute;
-//     $templetes->timestamps = false;
-//     $templetes->save(); 
-//     return redirect('/test');
-// });
+});
 
 
 
