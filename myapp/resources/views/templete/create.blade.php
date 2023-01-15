@@ -16,47 +16,61 @@
                       </label>
                       <input name="name"  type="text" >
                     </div>
-                    <!-- カラム２ -->
-                    <div>
-                      <label>
-                        曜日
-                      </label>
-                      <input name="week"  type="text" >
-                    </div>
+                    
                     <!-- カラム３ -->
                     <div>
                       <label>
                         開始時間
                       </label>
-                      <input name="start_hour" type="text">
+                      <select name="start_hour" >
+                      @for ($i = 0; $i < 24; $i++)
+                      <option value='{{$i}}'>{{$i}}</option>
+                      @endfor
+                      </select>
                     </div>
                     <!-- カラム4 -->
                     <div>
                       <label>
                         開始分
                       </label>
-                      <input name="start_minute" type="text" >
+                      <select name="start_minute" >
+                      @for ($i = 0; $i < 60; $i++)
+                      <option value='{{$i}}'>{{$i}}</option>
+                      @endfor
+                      </select>
                     </div>
                     <!-- カラム5 -->
                     <div>
                       <label>
                         終了時間
                       </label>
-                      <input name="end_hour" type="text" >
+                      <select name="end_hour" >
+                      @for ($i = 0; $i < 24; $i++)
+                      <option value='{{$i}}'>{{$i}}</option>
+                      @endfor
+                      </select>
                     </div>
                     <!-- カラム5 -->
                     <div>
                       <label>
                         終了分
                       </label>
-                      <input name="end_minute" type="text" >
+                      <select name="end_minute" >
+                      @for ($i = 0; $i < 60; $i++)
+                      <option value='{{$i}}'>{{$i}}</option>
+                      @endfor
+                      </select>
                     </div>
                     
                     <div>
                       <label>
                         遅刻許容分
                       </label>
-                      <input name="late_minute" type="text">
+                      <select name="late_minute" >
+                      @for ($i = 1; $i <= 60; $i++)
+                      <option value='{{$i}}'>{{$i}}</option>
+                      @endfor
+                      </select>
                     </div>
                     
                   </div>

@@ -14,7 +14,6 @@
   <tr>
     <th>ID</th>
     <th>名前</th>
-    <th>曜日</th>
     <th>開始時</th>
     <th>開始分</th>
     <th>終了時</th>
@@ -29,25 +28,6 @@
     </td>
     <td>
         <span class="text-xs text-gray-800">{{ $temp->name }}</span>
-    </td>
-    <td>
-        <span class="text-xs text-gray-800">
-            @if ($temp->week === 1)
-                月
-            @elseif ($temp->week === 2)
-                火
-            @elseif ($temp->week === 3)
-                水
-            @elseif ($temp->week === 4)
-                木
-            @elseif ($temp->week === 5)
-                金
-            @elseif ($temp->week === 6)
-                土
-            @elseif ($temp->week === 7)
-                日
-            @endif
-        </span>
     </td>
     <td>
         <span class="text-xs text-gray-800">{{ $temp->start_hour }}</span>
@@ -75,5 +55,36 @@
     </tr>
     @endforeach
 </table>
+
+
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th scope="col">#</th>-->
+<!--      <th scope="col">First</th>-->
+<!--      <th scope="col">Last</th>-->
+<!--      <th scope="col">Handle</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--    <tr>-->
+<!--      <th scope="row">1</th>-->
+<!--      <td>Mark</td>-->
+<!--      <td>Otto</td>-->
+<!--      <td>@mdo</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">2</th>-->
+<!--      <td>Jacob</td>-->
+<!--      <td>Thornton</td>-->
+<!--      <td>@fat</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th scope="row">3</th>-->
+<!--      <td colspan="2">Larry the Bird</td>-->
+<!--      <td>@twitter</td>-->
+<!--    </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
      
 </x-app-layout>

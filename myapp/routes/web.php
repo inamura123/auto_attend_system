@@ -5,6 +5,7 @@ use App\Models\Templete;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TempleteController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,6 @@ use App\Http\Controllers\TempleteController;
 |
 */
 
-// Route::get('/', function () {
-//     $templetes = Templetes::orderBy('created_at', 'asc')->get();
-//     return view('templetes',[
-//         'templetes' => $templetes
-//     ]);
-// })->middleware(['auth'])->name('home');
-// Route::resource('templete', TempleteController::class, ['except' => ['show']]);
-
 Route::controller(TempleteController::class)->prefix('templete')->name('templete')->group(function() {
     Route::get('/', 'list');
     Route::get('/create', 'create')->name('.create');
@@ -32,11 +25,18 @@ Route::controller(TempleteController::class)->prefix('templete')->name('templete
     Route::get('/edit/{templete_id}', 'edit')->name('.edit');
     Route::get('/delete/{templete_id}', 'delete')->name('.delete');
     Route::post('/update/{templete_id}', 'update')->name('.update');
-    // Route::put('/{templete}', 'update')->name('.update');
-    // Route::delete('/{templete}', 'destroy')->name('.destroy');
 });
 
 
+Route::controller(EventController::class)->prefix('event')->name('event')->group(function() {
+    Route::get('/', 'list');
+    Route::get('/create', 'create')->name('.create');
+    Route::post('/create', 'store')->name('.store');
+    Route::get('/edit/{event_id}', 'edit')->name('.edit');
+    Route::get('/delete/{event_id}', 'delete')->name('.delete');
+    Route::post('/update/{event_id}', 'update')->name('.update');
+    Route::get('/check/{event_id}', 'check')->name('.check');
+});
 // Route::post('/templete', function (Request $request) {
     
 //     $objDateTime = new DateTime();
@@ -58,12 +58,13 @@ Route::controller(TempleteController::class)->prefix('templete')->name('templete
 
 
 Route::get('/', function () {
-    return view('templete');
+    return view('dashboard');
 })->middleware(['auth'])->name('home');
 
 // Route::post('/templetes', function (Request $request) {
 
-    //以下に登録処理を記述（Eloquentモデル）
+    //以下に登録処理を
+    // 記述（Eloquentモデル）
 
   // Eloquentモデル
 //   $templetes = new Templete;
@@ -97,3 +98,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

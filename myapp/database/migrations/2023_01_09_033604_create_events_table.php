@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('templete_id')->references('templete_id')->on('templetes')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('event_name');
             $table->boolean('status');
-            $table->date('created_at');
+            $table->date('event_at');
         });
     }
 

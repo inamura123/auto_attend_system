@@ -32,7 +32,6 @@ class TempleteController extends Controller
         
         $request ->validate([
           'name' => ['required', 'string', 'max:100'],
-          'week' => ['required', 'integer','max:7'],
           'start_hour' => ['required', 'integer','max:23'],
           'start_minute' => ['required', 'integer','max:59'],
           'end_hour' => ['required', 'integer','max:23'],
@@ -44,7 +43,6 @@ class TempleteController extends Controller
         
         
         $data ->name = $request->name;
-        $data ->week = $request->week;
         $data ->start_hour = $request->start_hour;
         $data ->start_minute = $request->start_minute;
         $data ->end_hour = $request->end_hour;
@@ -71,7 +69,6 @@ class TempleteController extends Controller
         
         $request ->validate([
           'name' => ['required', 'string', 'max:100'],
-          'week' => ['required', 'integer','max:7'],
           'start_hour' => ['required', 'integer','max:23'],
           'start_minute' => ['required', 'integer','max:59'],
           'end_hour' => ['required', 'integer','max:23'],
@@ -84,7 +81,6 @@ class TempleteController extends Controller
         
         
         $data ->name = $request->name;
-        $data ->week = $request->week;
         $data ->start_hour = $request->start_hour;
         $data ->start_minute = $request->start_minute;
         $data ->end_hour = $request->end_hour;
@@ -104,5 +100,4 @@ class TempleteController extends Controller
         $templete->delete();
         return redirect('/templete');
     }
-    
 }

@@ -15,10 +15,6 @@
       <input name="name"  type="text" value={{$templete->name}}>
     </div>
   
-    <div>
-      <label>曜日</label>
-      <input name="week"  type="text" value={{$templete->week}}>
-    </div>
   
     <div>
       <label>開始時</label>
@@ -42,7 +38,8 @@
     
     <div>
       <label>遅刻許容分</label>
-      <input name="late_minute" type="text" value={{$templete->late_minute}}>
+      
+      <input name="late_minute" type="text" value={{$templete->end_minute}}>
     </div>
     
     <div>
